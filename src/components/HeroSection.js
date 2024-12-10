@@ -23,7 +23,9 @@ const HeroSection = () => {
             <Typography
                 variant="h2"
                 sx={{
-                    fontSize: { xs: "2rem", sm: "4rem", lg: "5rem" },
+                    fontSize: { xs: "1.75rem", sm: "4rem", lg: "5rem" },
+                    mb: { xs: 56, sm: 50, lg: 64 },
+                    zIndex: { xs: 1, sm: 0, lg: 0 },
                     fontWeight: "bold",
                     color: "transparent",
                     textAlign: "center",
