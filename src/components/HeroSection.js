@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import { Box, Typography, Button, TextField } from "@mui/material";
 
@@ -6,8 +8,8 @@ const HeroSection = () => {
         <Box
             sx={{
                 position: "relative",
-                height: "600px",
-                backgroundImage: "url('/maruti-suzuki-baleno-car.png')", // Replace with your car image URL
+                height: { xs: "500px", sm: "700px" },
+                backgroundImage: "url('/maruti-suzuki-baleno-car.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 color: "#000",
@@ -21,13 +23,12 @@ const HeroSection = () => {
             <Typography
                 variant="h2"
                 sx={{
-                    fontSize: "4rem", // Enlarge the text size
+                    fontSize: { xs: "2rem", sm: "4rem", lg: "5rem" },
                     fontWeight: "bold",
-                    color: "transparent", // Make the text transparent
+                    color: "transparent",
                     textAlign: "center",
-                    mb: 64,
-                    WebkitTextStroke: "2px #00b8d4", // Outline color and thickness
-                    WebkitTextFillColor: "transparent", // Ensure the fill is transparent
+                    WebkitTextStroke: { xs: "1px #00b8d4", sm: "2px #00b8d4" },
+                    WebkitTextFillColor: "transparent",
                 }}
             >
                 Finance Option Available
@@ -38,12 +39,14 @@ const HeroSection = () => {
                 variant="contained"
                 sx={{
                     position: "absolute",
-                    top: "3%",
-                    right: "10%",
+                    top: { xs: "5%", sm: "3%" },
+                    right: { xs: "5%", sm: "10%" },
                     backgroundColor: "#00b8d4",
                     color: "#fff",
                     fontWeight: "bold",
-                    padding: "10px 20px",
+                    padding: { xs: "8px 16px", sm: "12px 24px" },
+                    fontSize: { xs: "0.9rem", sm: "1rem" },
+                    zIndex: 1
                 }}
             >
                 Call Now
@@ -53,13 +56,13 @@ const HeroSection = () => {
             <Box
                 sx={{
                     position: "absolute",
-                    bottom: "10%",
-                    left: "5%",
+                    bottom: { xs: "5%", sm: "10%" },
+                    left: { xs: "5%", sm: "10%" },
                     backgroundColor: "#fff",
                     border: "2px dotted #00b8d4",
                     borderRadius: "10px",
-                    padding: "20px",
-                    width: "350px",
+                    padding: { xs: "15px", sm: "25px" },
+                    width: { xs: "300px", sm: "400px", md: "500px" },
                     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
                 }}
             >
@@ -70,12 +73,12 @@ const HeroSection = () => {
                         fontWeight: "bold",
                         mb: 2,
                         textAlign: "center",
+                        fontSize: { xs: "1rem", sm: "1.5rem" },
                     }}
                 >
                     Get Your Quote
                 </Typography>
                 <form>
-                    {/* Select Part */}
                     <TextField
                         label="Select Part"
                         fullWidth
@@ -87,16 +90,12 @@ const HeroSection = () => {
                         <option value="transmission">Transmission</option>
                         <option value="other">Other</option>
                     </TextField>
-
-                    {/* User Name */}
                     <TextField
                         label="Your Name"
                         fullWidth
                         margin="normal"
                         required
                     />
-
-                    {/* Phone Number */}
                     <TextField
                         label="Phone Number"
                         fullWidth
@@ -104,8 +103,6 @@ const HeroSection = () => {
                         type="tel"
                         required
                     />
-
-                    {/* Email Address */}
                     <TextField
                         label="Email Address"
                         fullWidth
@@ -113,8 +110,6 @@ const HeroSection = () => {
                         type="email"
                         required
                     />
-
-                    {/* Submit Button */}
                     <Button
                         fullWidth
                         variant="contained"
@@ -123,6 +118,7 @@ const HeroSection = () => {
                             backgroundColor: "#00b8d4",
                             color: "#fff",
                             textTransform: "none",
+                            fontSize: { xs: "0.9rem", sm: "1.2rem" },
                         }}
                     >
                         Submit

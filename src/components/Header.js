@@ -11,17 +11,24 @@ const Header = () => {
             <Box
                 sx={{
                     display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
                     justifyContent: "space-between",
                     alignItems: "center",
                     backgroundColor: "#00b8d4",
                     color: "#fff",
-                    padding: "10px 20px",
-                    position: "relative",
-                    zIndex: 2,
+                    padding: { xs: "8px 12px", sm: "10px 20px" },
                 }}
             >
-                {/* Left Section: Email and Hours */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
+                {/* Left Section */}
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: { xs: "column", sm: "row" },
+                        gap: { xs: 1, sm: 3 },
+                        textAlign: { xs: "center", sm: "left" },
+                    }}
+                >
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                         <Email fontSize="small" />
                         <Typography variant="body2">billing@vanderengines.com</Typography>
@@ -29,20 +36,20 @@ const Header = () => {
                     <Typography variant="body2">Sun - Fri (08AM - 10PM)</Typography>
                 </Box>
 
-                {/* Right Section: Social Icons */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <IconButton size="small" sx={{ color: "#fff" }}>
-                        <Facebook />
-                    </IconButton>
-                    <IconButton size="small" sx={{ color: "#fff" }}>
-                        <LinkedIn />
-                    </IconButton>
-                    <IconButton size="small" sx={{ color: "#fff" }}>
-                        <Instagram />
-                    </IconButton>
-                    <IconButton size="small" sx={{ color: "#fff" }}>
-                        <YouTube />
-                    </IconButton>
+                {/* Right Section */}
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                        marginTop: { xs: 2, sm: 0 },
+                    }}
+                >
+                    {[Facebook, LinkedIn, Instagram, YouTube].map((Icon, index) => (
+                        <IconButton key={index} size="small" sx={{ color: "#fff" }}>
+                            <Icon />
+                        </IconButton>
+                    ))}
                 </Box>
             </Box>
 
@@ -50,62 +57,57 @@ const Header = () => {
             <Box
                 sx={{
                     display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
                     justifyContent: "space-between",
                     alignItems: "center",
                     backgroundColor: "#fff",
                     color: "#000",
-                    padding: "20px 20px",
+                    padding: { xs: "12px 15px", sm: "20px" },
                     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-                    marginTop: "-20px", // Overlapping effect
+                    marginTop: "-20px",
                     borderRadius: "0 0 10px 10px",
                 }}
             >
-                {/* Left Section: Logo */}
-                <Box sx={{ display: "flex", alignItems: "center" }}>
+                {/* Logo */}
+                <Box sx={{ display: "flex", alignItems: "center", mb: { xs: 2, md: 0 } }}>
                     <Box
                         component="img"
                         src="/logo.jpg"
                         alt="Vander Engines"
-                        sx={{ height: 50, mr: 2 }}
+                        sx={{ height: { xs: 40, sm: 50 }, mr: 2 }}
                     />
                     <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                         Vander Engines
                     </Typography>
                 </Box>
 
-                {/* Center Section: Navigation */}
-                <Box sx={{ display: "flex", gap: 3 }}>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        Home
-                    </Button>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        Engines
-                    </Button>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        Transmissions
-                    </Button>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        About Us
-                    </Button>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        Blogs
-                    </Button>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        Financing
-                    </Button>
-                    <Button color="inherit" sx={{ color: "#000" }}>
-                        Contact
-                    </Button>
+                {/* Navigation */}
+                <Box
+                    sx={{
+                        display: "flex",
+                        gap: { xs: 2, md: 3 },
+                        flexWrap: "wrap",
+                        justifyContent: { xs: "center", md: "flex-start" },
+                    }}
+                >
+                    {["Home", "Engines", "Transmissions", "About Us", "Blogs", "Financing", "Contact"].map(
+                        (text) => (
+                            <Button key={text} color="inherit" sx={{ color: "#000", fontSize: { xs: "0.9rem", sm: "1rem" } }}>
+                                {text}
+                            </Button>
+                        )
+                    )}
                 </Box>
 
-                {/* Right Section: Call and Cart */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                {/* Call-to-Action */}
+                <Box sx={{ display: "flex", gap: 2, mt: { xs: 2, md: 0 }, flexWrap: "wrap", justifyContent: "center" }}>
                     <Button
                         variant="contained"
                         sx={{
                             backgroundColor: "#00b8d4",
                             color: "#fff",
                             textTransform: "none",
+                            fontSize: { xs: "0.8rem", sm: "1rem" },
                         }}
                     >
                         Free Consultation
